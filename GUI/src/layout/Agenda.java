@@ -1,4 +1,4 @@
-package Layout;
+package layout;
 
 import java.util.ArrayList;
 import java.util.List;

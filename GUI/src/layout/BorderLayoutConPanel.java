@@ -1,11 +1,14 @@
-package Layout;
+package layout;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 
-public class BoxLayoutDemo {
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class BorderLayoutConPanel {
 
 	private JFrame frame;
 
@@ -16,7 +19,7 @@ public class BoxLayoutDemo {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BoxLayoutDemo window = new BoxLayoutDemo();
+					BorderLayoutConPanel window = new BorderLayoutConPanel();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -28,7 +31,7 @@ public class BoxLayoutDemo {
 	/**
 	 * Create the application.
 	 */
-	public BoxLayoutDemo() {
+	public BorderLayoutConPanel() {
 		initialize();
 	}
 
@@ -40,14 +43,17 @@ public class BoxLayoutDemo {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		BoxLayout miBoxLayout = new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS);
-		frame.getContentPane().setLayout(miBoxLayout);
-		JButton boton1 = new JButton("Boton 1");
-		frame.getContentPane().add(boton1);
-		JButton boton2 = new JButton("Boton 2");
-		frame.getContentPane().add(boton2);
-		JButton boton3 = new JButton("Boton 3");
-		frame.getContentPane().add(boton3);
+		JPanel miPanel = new JPanel();
+		miPanel.setLayout(new BoxLayout(miPanel, BoxLayout.X_AXIS));
+		frame.add(miPanel,BorderLayout.SOUTH);
+		
+		JLabel etiqueta1 = new JLabel("Etiqueta Izquierda");
+		JLabel etiqueta2 = new JLabel("Etiqueta Derecha");
+		
+		miPanel.add(etiqueta1);
+		miPanel.add(etiqueta2);
+		
+		
 		
 	}
 
